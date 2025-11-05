@@ -1,0 +1,488 @@
+[gd_scene load_steps=50 format=3 uid="uid://qxikoegey4vq"]
+
+[ext_resource type="PackedScene" uid="uid://b44sl5w1550x0" path="res://scenes/protag.tscn" id="1_2venv"]
+[ext_resource type="Script" uid="uid://cxd3wqwtydngh" path="res://scripts/test_level.gd" id="1_j6w7d"]
+[ext_resource type="PackedScene" uid="uid://dabf7qluitr7f" path="res://scenes/scarecrow.tscn" id="2_ahbqi"]
+[ext_resource type="PackedScene" uid="uid://c8vosalpsrjoo" path="res://scenes/enemy.tscn" id="2_paw1w"]
+[ext_resource type="Script" uid="uid://dsiwyo1g2r0qe" path="res://scripts/hud.gd" id="3_88ety"]
+[ext_resource type="Script" uid="uid://dtaugxjm72him" path="res://scripts/cam_three_trigger.gd" id="4_x4b8f"]
+[ext_resource type="Script" uid="uid://cjcvi82t6jlat" path="res://scripts/temp_barrier.gd" id="5_tmr53"]
+[ext_resource type="Script" uid="uid://dbgwopb4i2tey" path="res://scripts/cam_two_trigger.gd" id="6_qcd3b"]
+[ext_resource type="PackedScene" uid="uid://3aw77v6jfu0r" path="res://scenes/crawler.tscn" id="9_4asn1"]
+[ext_resource type="Script" uid="uid://gabqkvxn5fkl" path="res://scripts/first_cam_trigger.gd" id="9_7gix3"]
+[ext_resource type="Script" uid="uid://diswg36tmnh14" path="res://scripts/crawler.gd" id="10_dw7u0"]
+[ext_resource type="Script" uid="uid://dhgb4vbv6nl82" path="res://scenes/cam_four_trigger.gd" id="11_fptmo"]
+[ext_resource type="Script" uid="uid://btx2rdbqo3uxd" path="res://scripts/cam_zero_trigger.gd" id="12_fyxdr"]
+[ext_resource type="Script" uid="uid://box2wt7n22hdw" path="res://scenes/cam_five_trigger.gd" id="12_hnsbs"]
+[ext_resource type="Script" uid="uid://yo1rphyuci8f" path="res://scripts/killzone.gd" id="13_kpk0m"]
+[ext_resource type="Script" uid="uid://g0hb5413fthc" path="res://scripts/cam_six_trigger.gd" id="13_kqfx7"]
+[ext_resource type="Script" uid="uid://1vijr3xl1b3c" path="res://scenes/appearance_barrier.gd" id="14_qs1vn"]
+[ext_resource type="PackedScene" uid="uid://bv1pfo58puixo" path="res://scenes/a_plat.tscn" id="15_13hs1"]
+[ext_resource type="Script" uid="uid://djihh7nx2p8mv" path="res://scenes/a_plat.gd" id="17_bakr3"]
+[ext_resource type="PackedScene" uid="uid://cnie21bsnx1je" path="res://scenes/cannon.tscn" id="18_jqmoj"]
+[ext_resource type="PackedScene" uid="uid://dvj6rw18lby0r" path="res://scenes/bomb.tscn" id="19_ni2ok"]
+[ext_resource type="Script" uid="uid://bbrqdl0gtxqkm" path="res://scripts/a_barrier_2.gd" id="21_rv6en"]
+[ext_resource type="Script" uid="uid://bsppk2dr3umxi" path="res://scripts/cannonwall.gd" id="22_tugu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni2ok"]
+size = Vector2(88, 4009)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13hs1"]
+size = Vector2(72, 523.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fptmo"]
+size = Vector2(54, 520.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bakr3"]
+size = Vector2(144, 568)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqmoj"]
+size = Vector2(53, 1924.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2venv"]
+size = Vector2(1000, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paw1w"]
+size = Vector2(1458, 153)
+
+[sub_resource type="QuadMesh" id="QuadMesh_88ety"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahbqi"]
+size = Vector2(1012.5, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4b8f"]
+size = Vector2(2603, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs1vn"]
+size = Vector2(2275.5, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw7u0"]
+size = Vector2(206, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gix3"]
+size = Vector2(450, 251)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmr53"]
+size = Vector2(266, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6w7d"]
+size = Vector2(2306.5, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnsbs"]
+size = Vector2(1613, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tugu3"]
+size = Vector2(502, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl35h"]
+size = Vector2(226, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpk0m"]
+size = Vector2(47, 1672)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ety"]
+size = Vector2(1008, 127.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fptmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv6en"]
+size = Vector2(4147.5, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfx7"]
+size = Vector2(1016, 525)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47x4r"]
+size = Vector2(37, 583)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5a2i"]
+size = Vector2(87, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1olsq"]
+size = Vector2(74, 614)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_j6w7d")
+
+[node name="AppearanceBarrier" type="StaticBody2D" parent="."]
+position = Vector2(2381, 1052)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("14_qs1vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AppearanceBarrier"]
+position = Vector2(-35, -1996.5)
+shape = SubResource("RectangleShape2D_ni2ok")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(-111, -1316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-36, -184.25)
+shape = SubResource("RectangleShape2D_13hs1")
+debug_color = Color(0, 0.64383554, 0.29841512, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1180, -181.75)
+shape = SubResource("RectangleShape2D_fptmo")
+debug_color = Color(5.7756904e-07, 0.63143367, 0.465554, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(40, 1603)
+shape = SubResource("RectangleShape2D_bakr3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(4799.5, 1420.25)
+shape = SubResource("RectangleShape2D_jqmoj")
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 390.0
+offset_top = -1490.0
+offset_right = 549.0
+offset_bottom = -1337.0
+text = "Arrow Keys to Move!
+Z to swing!
+Jump down here!
+|
+v
+ "
+horizontal_alignment = 1
+
+[node name="Press Up Arrow" type="Label" parent="."]
+offset_left = 1621.0
+offset_top = 438.0
+offset_right = 2022.0
+offset_bottom = 461.0
+text = "Press Up Arrow in the air to perform a double jump!"
+
+[node name="TestDummy" type="Label" parent="."]
+offset_left = 854.0
+offset_top = -1474.0
+offset_right = 957.0
+offset_bottom = -1451.0
+text = "Test Dummy!"
+
+[node name="Parry" type="Label" parent="."]
+offset_left = 4969.0
+offset_top = -1281.0
+offset_right = 5604.0
+offset_bottom = -1258.0
+text = "Your sword isn't strong enough to destroy the cannon! Parry the cannon ball back!"
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(31, 27)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+position = Vector2(666.5, 619)
+scale = Vector2(1.455, 1)
+mesh = SubResource("QuadMesh_2venv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(665, 620.5)
+shape = SubResource("RectangleShape2D_paw1w")
+
+[node name="Scarecrow" parent="." groups=["Enemy"] instance=ExtResource("2_ahbqi")]
+position = Vector2(921, -1312)
+
+[node name="StartFloorR" type="StaticBody2D" parent="."]
+position = Vector2(-382, -162)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StartFloorR"]
+position = Vector2(1526.9999, -1011)
+scale = Vector2(1009.99994, 128)
+mesh = SubResource("QuadMesh_88ety")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartFloorR"]
+position = Vector2(1527, -1012)
+shape = SubResource("RectangleShape2D_ahbqi")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(3533, 1138)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor2"]
+position = Vector2(-139.00015, 16.5)
+scale = Vector2(2.6, 1.22)
+mesh = SubResource("QuadMesh_2venv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-138.5, 17.5)
+shape = SubResource("RectangleShape2D_x4b8f")
+
+[node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource("2_paw1w")]
+position = Vector2(841, 219)
+player = NodePath("../Protag")
+
+[node name="Killzone" type="Area2D" parent="."]
+position = Vector2(1667, 1313)
+script = ExtResource("13_kpk0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-610.25, 63.5)
+shape = SubResource("RectangleShape2D_qs1vn")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_88ety")
+player = NodePath("../Protag")
+
+[node name="HPLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Cam0" type="Camera2D" parent="."]
+position = Vector2(466, -1433)
+
+[node name="FirstCam" type="Camera2D" parent="."]
+position = Vector2(576, 826)
+offset = Vector2(0, -500)
+
+[node name="SecondCam" type="Camera2D" parent="."]
+position = Vector2(1811, 768)
+zoom = Vector2(0.7, 0.7)
+
+[node name="ThirdCam" type="Camera2D" parent="."]
+position = Vector2(3547, 843)
+offset = Vector2(0, -250)
+zoom = Vector2(0.5, 0.5)
+
+[node name="FourthCam" type="Camera2D" parent="."]
+position = Vector2(3548, -504)
+zoom = Vector2(0.5, 0.5)
+
+[node name="FifthCam" type="Camera2D" parent="."]
+position = Vector2(5279, -1229)
+
+[node name="SixthCam" type="Camera2D" parent="."]
+position = Vector2(6864, -1343)
+zoom = Vector2(0.62, 0.62)
+
+[node name="CamZeroTrigger" type="Area2D" parent="."]
+position = Vector2(139, -1316)
+script = ExtResource("12_fyxdr")
+target_camera = NodePath("../Cam0")
+checkpoint_spawn = NodePath("../Checkpoint0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamZeroTrigger"]
+position = Vector2(10, -13)
+shape = SubResource("RectangleShape2D_dw7u0")
+
+[node name="CamOneTrigger" type="Area2D" parent="."]
+position = Vector2(416, -1081)
+script = ExtResource("9_7gix3")
+target_camera = NodePath("../FirstCam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamOneTrigger"]
+position = Vector2(55, 230)
+shape = SubResource("RectangleShape2D_7gix3")
+
+[node name="CamTwoTrigger" type="Area2D" parent="."]
+position = Vector2(1311, 528)
+script = ExtResource("6_qcd3b")
+target_camera = NodePath("../SecondCam")
+checkpoint_spawn = NodePath("../Checkpoint1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamTwoTrigger"]
+position = Vector2(-24, -43)
+shape = SubResource("RectangleShape2D_tmr53")
+
+[node name="CamThreeTrigger" type="Area2D" parent="."]
+position = Vector2(1293, 1196)
+script = ExtResource("4_x4b8f")
+target_camera = NodePath("../ThirdCam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamThreeTrigger"]
+position = Vector2(2254.25, -172)
+shape = SubResource("RectangleShape2D_j6w7d")
+
+[node name="CamFourTrigger" type="Area2D" parent="."]
+position = Vector2(3100, -100)
+script = ExtResource("11_fptmo")
+target_camera = NodePath("../FourthCam")
+checkpoint_spawn = NodePath("../Checkpoint2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamFourTrigger"]
+position = Vector2(475.5, -0.5)
+shape = SubResource("RectangleShape2D_hnsbs")
+
+[node name="CamFiveTrigger" type="Area2D" parent="."]
+position = Vector2(4816, -1007)
+script = ExtResource("12_hnsbs")
+target_camera = NodePath("../FifthCam")
+checkpoint_spawn = NodePath("../Checkpoint3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamFiveTrigger"]
+position = Vector2(142, 30)
+shape = SubResource("RectangleShape2D_tugu3")
+
+[node name="CamSixTrigger" type="Area2D" parent="."]
+position = Vector2(5899, -944)
+script = ExtResource("13_kqfx7")
+target_camera = NodePath("../SixthCam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamSixTrigger"]
+position = Vector2(67, -30.5)
+shape = SubResource("RectangleShape2D_wl35h")
+
+[node name="Enemy2" parent="." groups=["Enemy"] instance=ExtResource("2_paw1w")]
+position = Vector2(3525, 774)
+bob_height = 3.0
+bob_speed = 3.0
+player = NodePath("../Protag")
+
+[node name="TempBarrier" type="StaticBody2D" parent="."]
+position = Vector2(1151, 481)
+script = ExtResource("5_tmr53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBarrier"]
+position = Vector2(13.5, -751)
+shape = SubResource("RectangleShape2D_kpk0m")
+debug_color = Color(3.3691526e-07, 0.64588445, 0.25705853, 0.41960785)
+
+[node name="Crawler" parent="." groups=["Enemy"] instance=ExtResource("9_4asn1")]
+position = Vector2(2670, 973)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("10_dw7u0")
+player = NodePath("../Protag")
+trigger = NodePath("../Enemy2")
+
+[node name="StartFloorL" type="StaticBody2D" parent="."]
+position = Vector2(-382, -162)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StartFloorL"]
+position = Vector2(188, -1012)
+scale = Vector2(1009.99994, 128)
+mesh = SubResource("QuadMesh_88ety")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartFloorL"]
+position = Vector2(188, -1012.75)
+shape = SubResource("RectangleShape2D_88ety")
+
+[node name="Checkpoint0" type="Marker2D" parent="."]
+position = Vector2(91, -1346)
+
+[node name="Checkpoint1" type="Marker2D" parent="."]
+position = Vector2(1301, 487)
+
+[node name="Checkpoint2" type="Marker2D" parent="."]
+position = Vector2(3093, -65)
+
+[node name="Checkpoint3" type="Marker2D" parent="."]
+position = Vector2(4767, -992)
+
+[node name="Protag" parent="." instance=ExtResource("1_2venv")]
+position = Vector2(121, -1317)
+initial_checkpoint = NodePath("../Checkpoint0")
+
+[node name="Crawler2" parent="." groups=["Enemy"] instance=ExtResource("9_4asn1")]
+position = Vector2(4132, 969)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("10_dw7u0")
+player = NodePath("../Protag")
+trigger = NodePath("../Enemy2")
+
+[node name="APlat1" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(4023, 805)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat2" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(3101, 630)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat3" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(4019, 453)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat4" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(3100, 293)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat5" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(4024, 134)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat6" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(3098, -9)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat7" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(4013, -172)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat8" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(3108, -335)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat9" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(4018, -559)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="APlat10" parent="." instance=ExtResource("15_13hs1")]
+position = Vector2(3108, -744)
+enemy_a = NodePath("../Crawler")
+enemy_b = NodePath("../Crawler2")
+
+[node name="ATunnel" type="StaticBody2D" parent="."]
+position = Vector2(3774, -474)
+script = ExtResource("17_bakr3")
+enemy_a = NodePath("../Crawler2")
+enemy_b = NodePath("../Crawler")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ATunnel"]
+position = Vector2(1974, -426)
+scale = Vector2(4148.25, 74.75004)
+mesh = SubResource("QuadMesh_fptmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ATunnel"]
+position = Vector2(1974.25, -426.5)
+shape = SubResource("RectangleShape2D_rv6en")
+
+[node name="Cannon" parent="." instance=ExtResource("18_jqmoj")]
+position = Vector2(5749, -1016)
+bomb_scene = ExtResource("19_ni2ok")
+
+[node name="DetectionArea" type="Area2D" parent="Cannon" groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon/DetectionArea"]
+position = Vector2(-538, -186.5)
+shape = SubResource("RectangleShape2D_kqfx7")
+debug_color = Color(0.3346329, 0.6168547, 0.25022864, 0.41960785)
+
+[node name="ABarrier2" type="StaticBody2D" parent="."]
+position = Vector2(4671, -1021)
+script = ExtResource("21_rv6en")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ABarrier2"]
+position = Vector2(8.5, -210.5)
+shape = SubResource("RectangleShape2D_47x4r")
+
+[node name="BouncingBarrier" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BouncingBarrier"]
+position = Vector2(2346.5, 1010)
+shape = SubResource("RectangleShape2D_o5a2i")
+debug_color = Color(0.9527119, 2.887845e-06, 0.55972517, 0.41960785)
+
+[node name="Cannonwall" type="StaticBody2D" parent="."]
+script = ExtResource("22_tugu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannonwall"]
+position = Vector2(5893, -1247)
+shape = SubResource("RectangleShape2D_1olsq")
+
+[node name="Win" type="Label" parent="."]
+offset_left = 6835.0
+offset_top = -1360.0
+offset_right = 6901.0
+offset_bottom = -1337.0
+text = "You win!"

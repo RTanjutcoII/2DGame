@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://qxikoegey4vq"]
+
+[ext_resource type="PackedScene" uid="uid://b44sl5w1550x0" path="res://scenes/protag.tscn" id="1_2venv"]
+[ext_resource type="Script" uid="uid://cxd3wqwtydngh" path="res://scenes/test_level.gd" id="1_j6w7d"]
+[ext_resource type="PackedScene" uid="uid://c8vosalpsrjoo" path="res://scenes/enemy.tscn" id="2_paw1w"]
+[ext_resource type="Script" uid="uid://dtaugxjm72him" path="res://scenes/cam_trigger.gd" id="4_x4b8f"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2venv"]
+size = Vector2(1000, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paw1w"]
+size = Vector2(1186, 146)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_paw1w"]
+distance = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4b8f"]
+size = Vector2(2302, 187)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6w7d"]
+size = Vector2(2305, 88)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_j6w7d")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(31, 27)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+position = Vector2(532.5, 619)
+scale = Vector2(1.187, 1)
+mesh = SubResource("QuadMesh_2venv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(529, 617)
+shape = SubResource("RectangleShape2D_paw1w")
+
+[node name="Enemy" parent="." groups=["Enemy"] instance=ExtResource("2_paw1w")]
+position = Vector2(841, 219)
+player = NodePath("../Protag")
+health = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 273)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_paw1w")
+
+[node name="SecondCam" type="Camera2D" parent="."]
+position = Vector2(1810, 2192)
+offset = Vector2(0, -250)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(1800, 2500)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor2"]
+position = Vector2(9.9999695, 16.5)
+scale = Vector2(2.302, 1.22)
+mesh = SubResource("QuadMesh_2venv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(12, 15.5)
+shape = SubResource("RectangleShape2D_x4b8f")
+
+[node name="CamTrigger" type="Area2D" parent="."]
+position = Vector2(1293, 1196)
+script = ExtResource("4_x4b8f")
+target_camera = NodePath("../SecondCam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamTrigger"]
+position = Vector2(517.5, 1186)
+shape = SubResource("RectangleShape2D_j6w7d")
+
+[node name="Enemy2" parent="." groups=["Enemy"] instance=ExtResource("2_paw1w")]
+position = Vector2(4124, 322)
+bob_height = 3.0
+bob_speed = 3.0
+player = NodePath("../Protag")
+
+[node name="Protag" parent="." instance=ExtResource("1_2venv")]
+position = Vector2(75, 495)
+health = 999
+speed = null
+gravity = null
+jump_force = null
+
+[node name="ProtagCam" type="Camera2D" parent="Protag"]
+offset = Vector2(0, -250)
+limit_left = 0
+
+[node name="FirstCam" type="Camera2D" parent="."]
+position = Vector2(576, 826)
+offset = Vector2(0, -500)

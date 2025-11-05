@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv1pfo58puixo"]
+
+[ext_resource type="Script" uid="uid://djihh7nx2p8mv" path="res://scenes/a_plat.gd" id="1_dhtmp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs1vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnsbs"]
+size = Vector2(660, 19)
+
+[node name="APlat1" type="StaticBody2D" groups=["AppearOne"]]
+script = ExtResource("1_dhtmp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0.5001221, 0.24998617)
+scale = Vector2(659.00024, 18.499973)
+mesh = SubResource("QuadMesh_qs1vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.7500086)
+shape = SubResource("RectangleShape2D_hnsbs")

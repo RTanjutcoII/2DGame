@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dabf7qluitr7f"]
+
+[ext_resource type="Texture2D" uid="uid://baqtav10jvyrr" path="res://assets/scarecrow.png" id="1_fixr6"]
+[ext_resource type="Script" uid="uid://dt3u82o1n7pc1" path="res://scripts/scarecrow.gd" id="1_ig2jv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fixr6"]
+size = Vector2(134, 215)
+
+[sub_resource type="Animation" id="Animation_ig2jv"]
+resource_name = "hit_flash"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vh04a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxnvp"]
+_data = {
+&"RESET": SubResource("Animation_vh04a"),
+&"hit_flash": SubResource("Animation_ig2jv")
+}
+
+[node name="Scarecrow" type="StaticBody2D"]
+script = ExtResource("1_ig2jv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 1)
+texture = ExtResource("1_fixr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -18.5)
+shape = SubResource("RectangleShape2D_fixr6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vxnvp")
+}

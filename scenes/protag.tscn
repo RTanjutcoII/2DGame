@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://b44sl5w1550x0"]
+
+[ext_resource type="Script" uid="uid://svlec0yshvnm" path="res://scripts/protag.gd" id="1_dbhyc"]
+[ext_resource type="Texture2D" uid="uid://ci5nnvvbnl48c" path="res://assets/protag.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://vldrkcotdh8w" path="res://assets/protagParry.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dtbrwlk4b3pr8" path="res://assets/protagDead.png" id="2_spw4g"]
+[ext_resource type="AudioStream" uid="uid://ct2i2df3hx8n3" path="res://assets/swing.mp3" id="4_bbiwp"]
+[ext_resource type="AudioStream" uid="uid://jbkmbmngo2v7" path="res://assets/swordHit.wav" id="6_0y6jr"]
+[ext_resource type="AudioStream" uid="uid://2yah6vhladn6" path="res://assets/oof.wav" id="7_0y6jr"]
+[ext_resource type="AudioStream" uid="uid://xra4gi2s2dw3" path="res://assets/sword_parry.wav" id="8_n3pw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(65.5, 144.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbiwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_spw4g")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"parry",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbhyc"]
+size = Vector2(112, 145)
+
+[sub_resource type="Animation" id="Animation_66rln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_spw4g"]
+resource_name = "hit_flash"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0y6jr"]
+_data = {
+&"RESET": SubResource("Animation_66rln"),
+&"hit_flash": SubResource("Animation_spw4g")
+}
+
+[node name="Protag" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_dbhyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.75, -0.25)
+shape = SubResource("RectangleShape2D_hqtel")
+debug_color = Color(0.8835774, 0.27256933, 0.5027497, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -7.5)
+scale = Vector2(0.68359375, 0.68359375)
+sprite_frames = SubResource("SpriteFrames_bbiwp")
+
+[node name="SwingRange" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingRange"]
+position = Vector2(52, -0.5)
+shape = SubResource("RectangleShape2D_dbhyc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0y6jr")
+}
+
+[node name="Swing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bbiwp")
+
+[node name="SwingHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0y6jr")
+
+[node name="Ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0y6jr")
+
+[node name="ParryHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_n3pw4")
